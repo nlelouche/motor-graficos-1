@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcproj", "{AC5D0666-D062-4C05-946F-A57E4509F3AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestGame", "TestGame\TestGame.vcproj", "{7285D54E-A7A4-434C-BC13-02C250BE1041}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC5D0666-D062-4C05-946F-A57E4509F3AC} = {AC5D0666-D062-4C05-946F-A57E4509F3AC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC5D0666-D062-4C05-946F-A57E4509F3AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AC5D0666-D062-4C05-946F-A57E4509F3AC}.Debug|Win32.Build.0 = Debug|Win32
+		{AC5D0666-D062-4C05-946F-A57E4509F3AC}.Release|Win32.ActiveCfg = Release|Win32
+		{AC5D0666-D062-4C05-946F-A57E4509F3AC}.Release|Win32.Build.0 = Release|Win32
+		{7285D54E-A7A4-434C-BC13-02C250BE1041}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7285D54E-A7A4-434C-BC13-02C250BE1041}.Debug|Win32.Build.0 = Debug|Win32
+		{7285D54E-A7A4-434C-BC13-02C250BE1041}.Release|Win32.ActiveCfg = Release|Win32
+		{7285D54E-A7A4-434C-BC13-02C250BE1041}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
