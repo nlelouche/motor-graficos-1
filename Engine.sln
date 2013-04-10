@@ -1,12 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcproj", "{AC5D0666-D062-4C05-946F-A57E4509F3AC}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{AC5D0666-D062-4C05-946F-A57E4509F3AC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestGame", "TestGame\TestGame.vcproj", "{7285D54E-A7A4-434C-BC13-02C250BE1041}"
-	ProjectSection(ProjectDependencies) = postProject
-		{AC5D0666-D062-4C05-946F-A57E4509F3AC} = {AC5D0666-D062-4C05-946F-A57E4509F3AC}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestGame", "TestGame\TestGame.vcxproj", "{7285D54E-A7A4-434C-BC13-02C250BE1041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

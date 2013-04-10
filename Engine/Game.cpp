@@ -1,5 +1,4 @@
 #include "Game.h"
-// globals
 #include <d3d9.h>
 LPDIRECT3D9       g_pDirect3D = NULL;
 LPDIRECT3DDEVICE9 g_pDirect3D_Device = NULL;
@@ -32,15 +31,14 @@ bool Game::StartUp()
 
 	//----------------------------------------------------------
 	// Inicializar DX
-	
+
 	g_pDirect3D = Direct3DCreate9(D3D_SDK_VERSION);
 
-//size
-ZeroMemory(&m_PresentParameters,sizeof(m_PresentParameters));
-//fullscreen
-m_PresentParameters.Windowed = false;
-	PresentParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	D3DPRESENT_PARAMETERS PresentParams;
+	memset(&PresentParams, 0, sizeof(D3DPRESENT_PARAMETERS));
 
+	PresentParams.Windowed = TRUE;
+	PresentParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
 
 	g_pDirect3D->CreateDevice(D3DADAPTER_DEFAULT,
 								D3DDEVTYPE_HAL,
