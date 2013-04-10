@@ -35,10 +35,10 @@ bool Game::StartUp()
 	
 	g_pDirect3D = Direct3DCreate9(D3D_SDK_VERSION);
 
-	D3DPRESENT_PARAMETERS PresentParams;
-	memset(&PresentParams, 0, sizeof(D3DPRESENT_PARAMETERS));
-
-	PresentParams.Windowed = TRUE;
+//size
+ZeroMemory(&m_PresentParameters,sizeof(m_PresentParameters));
+//fullscreen
+m_PresentParameters.Windowed = false;
 	PresentParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
 
 
@@ -140,12 +140,23 @@ bool Game::ShutDown()
 		return false;
 
 	if (m_pkWindows)
+	{
 		delete m_pkWindows;
+		m_pkWindows = NULL;
+	}
 
-	m_pkWindows = NULL;
+	if(g_pDirect3D_Device != NULL)
+	{
+		g_pDirect3D_Device->Release();
+		g_pDirect3D_Device = NULL;
+	}
 
-	g_pDirect3D_Device->Release();
-	g_pDirect3D->Release();
+	if(g_pDirect3D != NULL)
+	{
+		 g_pDirect3D->Release();
+		 g_pDirect3D = NULL;
+	}
+
 	//pVertexObject->Release();
 
 	return true;
