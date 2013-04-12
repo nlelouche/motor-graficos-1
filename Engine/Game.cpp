@@ -1,14 +1,16 @@
 #include "Game.h"
 #include <d3d9.h>
-LPDIRECT3D9       g_pDirect3D = NULL;
-LPDIRECT3DDEVICE9 g_pDirect3D_Device = NULL;
+#include <assert.h>
+//LPDIRECT3D9       g_pDirect3D = NULL;
+//LPDIRECT3DDEVICE9 g_pDirect3D_Device = NULL;
 //--------------------------------------------------------------------------------
 Game::Game(HINSTANCE hInstance)
 :
 m_pkWindows(NULL),
+m_pkRenderer(NULL),
 m_hInstance(hInstance)
 {
-
+	
 }
 //--------------------------------------------------------------------------------
 Game::~Game()
@@ -28,23 +30,15 @@ bool Game::StartUp()
 
 	m_pkWindows->createWindow(800, 600, hWnd);
 
-	//----------------------------------------------------------
-	// Inicializar DX
+	m_pkRenderer = new Renderer(hWnd);
+	
+	if(!m_pkRenderer)
+		return false;
 
-	g_pDirect3D = Direct3DCreate9(D3D_SDK_VERSION);
+	if(!m_pkRenderer->InitDX(hWnd))
+		return false;
 
-	D3DPRESENT_PARAMETERS PresentParams;
-	memset(&PresentParams, 0, sizeof(D3DPRESENT_PARAMETERS));
-
-	PresentParams.Windowed = TRUE;
-	PresentParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
-
-	g_pDirect3D->CreateDevice(D3DADAPTER_DEFAULT,
-								D3DDEVTYPE_HAL,
-								hWnd,
-								D3DCREATE_SOFTWARE_VERTEXPROCESSING,
-								&PresentParams,
-								&g_pDirect3D_Device);
+	return true;
 
 //----------------------------------------------------------
 /*
@@ -97,14 +91,24 @@ pVertexObject->Unlock();
 	if (!OnStartUp())
 		return false;
 
-	return true;
+	//return true;
 }
 //--------------------------------------------------------------------------------
 bool Game::Loop()
 {
-	g_pDirect3D_Device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 255),
 
-                          1.0f, 0);
+	assert(m_pkRenderer);
+	m_pkRenderer->StartFrame();
+
+	m_pkRenderer->Draw();
+
+	if (OnLoop()){
+		return true;
+	}
+
+	m_pkRenderer->EndFrame();
+	
+	return false;
 
 /*
 if(SUCCEEDED(g_pDirect3D_Device->BeginScene()))
@@ -116,7 +120,7 @@ if(SUCCEEDED(g_pDirect3D_Device->BeginScene()))
 }
 */
 
-	g_pDirect3D_Device->Present(NULL, NULL, NULL, NULL);
+
 
 
 
@@ -125,10 +129,7 @@ if(SUCCEEDED(g_pDirect3D_Device->BeginScene()))
 
 //ValidateRect(hW, NULL);
 
-	if (OnLoop())
-		return true;
 
-	return false;
 }
 //--------------------------------------------------------------------------------
 bool Game::ShutDown()
@@ -141,7 +142,7 @@ bool Game::ShutDown()
 		delete m_pkWindows;
 		m_pkWindows = NULL;
 	}
-
+	/*
 	if(g_pDirect3D_Device != NULL)
 	{
 		g_pDirect3D_Device->Release();
@@ -153,7 +154,7 @@ bool Game::ShutDown()
 		 g_pDirect3D->Release();
 		 g_pDirect3D = NULL;
 	}
-
+	*/
 	//pVertexObject->Release();
 
 	return true;
