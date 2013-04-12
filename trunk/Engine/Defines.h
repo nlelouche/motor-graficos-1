@@ -21,7 +21,11 @@
 //----------------------------------------------------------------
 // Includes Standar
 #include <windows.h>
-
+#include <string>
+#include <sstream>
+#include <stdarg.h>
+#include <stdio.h>
 //----------------------------------------------------------------
-
+using namespace std;
+//----------------------------------------------------------------
 #endif // DEFINES_H

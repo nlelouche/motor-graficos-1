@@ -3,7 +3,9 @@
 //--------------------------------------------------------------------------------
 #include "Defines.h"
 #include "Window.h"
-#include <d3d9.h>
+#include <D3D9.h>
+#include <D3DX9.h>
+#include "Renderer.h"
 //--------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------
@@ -25,10 +27,13 @@ protected:
 	virtual bool OnStartUp()=0;
 	virtual bool OnLoop()=0;
 	virtual bool OnShutDown()=0;
+	Renderer* m_pkRenderer;
 
 private:
 	Window* m_pkWindows;
 	HINSTANCE m_hInstance;
+	//IDirect3DDevice9*  m_pkDevice;
+	
 
 /* // Triangle
 struct D3DVERTEX
