@@ -32,18 +32,7 @@ protected:
 private:
 	Window* m_pkWindows;
 	HINSTANCE m_hInstance;
-	//IDirect3DDevice9*  m_pkDevice;
 	
-
-/* // Triangle
-struct D3DVERTEX
-{
-   float x, y, z, rhw;
-   DWORD color;
-};
-	void *pVertexBuffer;// = NULL;
-	LPDIRECT3DVERTEXBUFFER9 pVertexObject;
-*/
 };
 //--------------------------------------------------------------------------------
 #endif //GAME_H 
