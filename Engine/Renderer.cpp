@@ -1,11 +1,10 @@
 #include "Renderer.h"
-
 //--------------------------------------------------------------
 
 Renderer::Renderer(HWND hWnd)
-	:
+:
 m_hWnd(NULL),
-	m_pkDevice(NULL)
+m_pkDevice(NULL)
 {
 }
 //--------------------------------------------------------------
@@ -21,7 +20,6 @@ Renderer::~Renderer(){
 }
 //--------------------------------------------------------------
 bool Renderer::InitDX(HWND hWnd){
-
 
 	IDirect3D9 * _pD3D;
 
@@ -43,7 +41,9 @@ bool Renderer::InitDX(HWND hWnd){
 
 	// Fijo los valores a la estructura D3DPRESENT_PARAMETERS
 	D3DPRESENT_PARAMETERS d3dPresentParameters;
+
 	ZeroMemory( &d3dPresentParameters, sizeof(d3dPresentParameters));
+
 	d3dPresentParameters.BackBufferFormat = displayMode.Format;
 	d3dPresentParameters.Windowed = true;
 	d3dPresentParameters.BackBufferCount = 1; 
@@ -90,11 +90,9 @@ bool Renderer::InitDX(HWND hWnd){
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, D3DZB_TRUE);
 	m_pkDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
 
-	//---------------------------------------------------------------------------------------
-
+	//--------------------------------------------------------------------------
+	// Triangulo Hardcodeado:
 	struct D3DVERTEX {float x, y, z, rhw; DWORD color;} vertices[3];
-
-
 
 	vertices[0].x = 50; 
 	vertices[0].y = 50; 
@@ -102,15 +100,11 @@ bool Renderer::InitDX(HWND hWnd){
 	vertices[0].rhw = 1.0f; 
 	vertices[0].color = 0x00ff00;
 
-
-
 	vertices[1].x = 250; 
 	vertices[1].y = 50; 
 	vertices[1].z = 0; 
 	vertices[1].rhw = 1.0f; 
 	vertices[1].color = 0x0000ff;
-
-
 
 	vertices[2].x = 50; 
 	vertices[2].y = 250; 
@@ -118,11 +112,8 @@ bool Renderer::InitDX(HWND hWnd){
 	vertices[2].rhw = 1.0f;
 	vertices[2].color = 0xff0000;
 
-
 	pVertexObject = NULL;
 	pVertexBuffer = NULL;
-
-
 
 	if(FAILED(m_pkDevice->CreateVertexBuffer(3*sizeof(D3DVERTEX), 0, 
 		D3DFVF_XYZRHW|D3DFVF_DIFFUSE, D3DPOOL_DEFAULT, &pVertexObject, NULL)))
@@ -142,7 +133,7 @@ bool Renderer::InitDX(HWND hWnd){
 }
 //--------------------------------------------------------------
 void Renderer::Draw(/*ColorVertex * vertexColletion, PrimitiveType ePrim, unsigned int uiVertexCount*/){
-
+// Hardcodeado para dibujar el triangulo
 	m_pkDevice->SetStreamSource(0, pVertexObject, 0, sizeof(D3DVERTEX));
 	m_pkDevice->SetFVF(D3DFVF_XYZRHW|D3DFVF_DIFFUSE);
 	m_pkDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
