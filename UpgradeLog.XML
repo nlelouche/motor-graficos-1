@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Engine">
+</Property><Property Name="Solution File" Value="C:\Users\CalaveraX\Desktop\Motor 2D\Engine.sln">
+</Property><Property Name="User Options File" Value="C:\Users\CalaveraX\Desktop\Motor 2D\Engine.suo">
+</Property><Property Name="Date" Value="Wednesday, 10 April, 2013">
+</Property><Property Name="Time" Value="15:31 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Engine.sln" Description="File successfully backed up as C:\Users\CalaveraX\Desktop\Motor 2D\Engine.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="Engine.suo" Description="File successfully backed up as C:\Users\CalaveraX\Desktop\Motor 2D\Engine.suo.old">
+</Event><Event ErrorLevel="0" Project="Engine" Source="Engine\Engine.vcproj" Description="Converting project file 'C:\Users\CalaveraX\Desktop\Motor 2D\Engine\Engine.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Engine" Source="Engine\Engine.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Engine" Source="Engine\Engine.vcproj" Description="Done converting to new project file 'C:\Users\CalaveraX\Desktop\Motor 2D\Engine\Engine.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Engine" Source="Engine\Engine.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TestGame" Source="TestGame\TestGame.vcproj" Description="Converting project file 'C:\Users\CalaveraX\Desktop\Motor 2D\TestGame\TestGame.vcproj'.">
+</Event><Event ErrorLevel="1" Project="TestGame" Source="TestGame\TestGame.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="TestGame" Source="TestGame\TestGame.vcproj" Description="Done converting to new project file 'C:\Users\CalaveraX\Desktop\Motor 2D\TestGame\TestGame.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="TestGame" Source="TestGame\TestGame.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Engine.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Engine.sln" Description="Converted">
+</Event></UpgradeLog>
